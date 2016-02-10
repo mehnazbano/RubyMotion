@@ -1,0 +1,2 @@
+rails:      bundle exec thin start
+memcached:  memcached

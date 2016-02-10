@@ -1,1 +1,11 @@
-p "cooool"
+= form_for @blogpost do |f|
+  p
+    = f.label :title
+    = f.text_field :title
+ 
+  p
+    = f.label :description
+    = f.text_area :description , onclick: "document.getElementById('testing').innerHTML = Date()"
+  p id='testing'
+  p
+    = f.submit
