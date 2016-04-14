@@ -5,8 +5,6 @@ class BlogpostsController < ApplicationController
   end
 
   def create
-  	p "cominggg"
-  	p params
   	@blogpost = Blogpost.create(params.require(:blogpost).permit(:title, :description))
   	@blogpost.save
   	redirect_to @blogpost
