@@ -1,3 +1,4 @@
+- names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
 = form_for @blogpost do |f|
   p
     = f.label :title
@@ -7,5 +8,8 @@
     = f.label :description
     = f.text_area :description , onclick: "document.getElementById('testing').innerHTML = Date()"
   p id='testing'
+  p 
+    = f.label :tags
+    = f.text_field :tags, 'data-tokeninput' => { collection: names }.to_json
   p
     = f.submit
