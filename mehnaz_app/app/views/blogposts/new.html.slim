@@ -1,4 +1,6 @@
 - names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
+h1 
+ = "Create a Blogpost"
 = form_for @blogpost do |f|
   p
     = f.label :title
@@ -11,5 +13,11 @@
   p 
     = f.label :tags
     = f.text_field :tags, 'data-tokeninput' => { collection: names }.to_json
+  p 
+    = f.label :location
+    = f.text_field :location, class: "js_location_tokeninput", id: "locationTokenInput"
+  p 
+    = f.label :type 
+    = f.select(:type, [['General',1],['Report', 2],['Article', 3]], {}, { :class => 'my_style_class' })
   p
     = f.submit

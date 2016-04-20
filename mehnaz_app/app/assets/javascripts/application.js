@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require web/MehnazApp
 //= require_tree .
 //= require rails-jquery-tokeninput
+//= require jquery.tokeninput
+
