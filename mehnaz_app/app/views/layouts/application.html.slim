@@ -12,6 +12,16 @@ html
         = "Signed in as #{current_user.email}. Not you?"
         = " "
         = link_to "Sign out", destroy_user_session_path
+        br
+        p 
+          = link_to "Create a Blogpost", new_blogpost_path
+          = "      "
+          = link_to "Show all Blogpost", blogposts_path
+          = "      "
+          = link_to "Create a Microblog", new_microblog_path
+          = "      "
+          = link_to "Show all Blogpost", microblogs_path
+
       - else
         = link_to "Sign up", new_user_registration_path
         = " "

@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  searchable do
-  	string :email
-  end
+  #searchable do
+  	#string :email
+  #end
 end

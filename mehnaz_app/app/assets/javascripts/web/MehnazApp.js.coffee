@@ -4,6 +4,7 @@ window.MehnazApp = do ->
 	# This function is called after the dom is ready to and **$** is available
 	init: ->
 		MehnazApp.Form.AutoSuggest.init()
+		MehnazApp.Common.DropdownSelection.init()
 		return true
 	# ###MehnazApp._config
 	#Returns the config hash set in the init function

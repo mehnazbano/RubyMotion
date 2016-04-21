@@ -4,13 +4,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'blogposts#index'
+  root 'welcome#index'
   resources :blogposts do
     collection do
       get :get_locations
       post :get_location_code
     end
   end
+  resources :microblogs
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
