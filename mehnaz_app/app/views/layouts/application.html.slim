@@ -6,21 +6,34 @@ html
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css"
+    script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"
+    script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"
   body
     #user_nav
       - if user_signed_in?
         = "Signed in as #{current_user.email}. Not you?"
         = " "
         = link_to "Sign out", destroy_user_session_path
+        #simple-menu
+          = link_to "Toggle menu", "#sidr"
+
+        #sidr
+          ul
+            li
+              = link_to "List 1", "#"
+            li
+              = link_to "lsit 2", "#"
+
         br
         p 
-          = link_to "Create a Blogpost", new_blogpost_path
+          = link_to "Abouts Us", new_blogpost_path
           = "      "
-          = link_to "Show all Blogpost", blogposts_path
+          = link_to "Feedback", blogposts_path
           = "      "
-          = link_to "Create a Microblog", new_microblog_path
+          = link_to "Edit User Profile", expertise_areas_new_path
           = "      "
-          = link_to "Show all Blogpost", microblogs_path
+          = link_to "Settings", microblogs_path
 
       - else
         = link_to "Sign up", new_user_registration_path
