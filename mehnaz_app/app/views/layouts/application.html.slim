@@ -12,28 +12,23 @@ html
   body
     #user_nav
       - if user_signed_in?
-        = "Signed in as #{current_user.email}. Not you?"
-        = " "
-        = link_to "Sign out", destroy_user_session_path
-        #simple-menu
-          = link_to "Toggle menu", "#sidr"
+        p 
+          = image_tag('loader-small.gif', :class => 'hidden centerAlign ajaxLoaderSingle', :id => 'loading_image')
+          = "Welcome #{current_user.email}"
+        
+          #simple-menu
+            = link_to "Toggle menu", "#sidr"
 
         #sidr
           ul
             li
-              = link_to "List 1", "#"
+              = link_to "Abouts Us", "#"
             li
-              = link_to "lsit 2", "#"
-
-        br
-        p 
-          = link_to "Abouts Us", new_blogpost_path
-          = "      "
-          = link_to "Feedback", blogposts_path
-          = "      "
-          = link_to "Edit User Profile", expertise_areas_new_path
-          = "      "
-          = link_to "Settings", microblogs_path
+              = link_to "Feedback", "#"
+            li 
+              = link_to "Settings", "#"
+            li
+              = link_to "Sign out", destroy_user_session_path
 
       - else
         = link_to "Sign up", new_user_registration_path

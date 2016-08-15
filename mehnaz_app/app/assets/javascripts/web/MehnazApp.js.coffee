@@ -7,6 +7,10 @@ window.MehnazApp = do ->
 		MehnazApp.Form.EditBlogpost.init()
 		MehnazApp.Common.DropdownSelection.init()
 		MehnazApp.Form.Common.init()
+		MehnazApp.Form.Feed.init()
+		MehnazApp.AutoLoading.Containers.init()
+		
+		
 		return true
 	# ###MehnazApp._config
 	#Returns the config hash set in the init function

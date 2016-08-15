@@ -1,0 +1,6 @@
+- if @feeds.present?
+  - @feeds.each do |feed|
+    .div style="color: blue;"
+      h3 = feed.description
+- else
+  = "Feed are yet to be created"
