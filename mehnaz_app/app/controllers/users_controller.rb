@@ -6,7 +6,9 @@ class UsersController < ApplicationController
   end
 
   def my_timeline
-  	@feeds = Feed.all
+    p params
+    @page = params['page'].to_i
+  	@feeds = Feed.all.page(page).per(2)
   end
 
 end
