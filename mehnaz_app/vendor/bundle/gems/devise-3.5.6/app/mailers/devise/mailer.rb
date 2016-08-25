@@ -1,6 +1,7 @@
 if defined?(ActionMailer)
   class Devise::Mailer < Devise.parent_mailer.constantize
     include Devise::Mailers::Helpers
+    require 'action_mailer'
 
     def confirmation_instructions(record, token, opts={})
       @token = token
