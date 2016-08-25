@@ -21,9 +21,15 @@ module MehnazApp
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+    Paperclip.options[:command_path] = "/Users/mehnazbano/"
     config.active_record.raise_in_transactional_callbacks = true
     config.generators do |g|
       g.template_engine :slim
+    end
+    config.autoload_paths += %W[#{config.root}/lib/validators/]
+
+    EmailVerifier.config do |config|
+      config.verifier_email = "realname@realdomain.com"
     end
   end
 end

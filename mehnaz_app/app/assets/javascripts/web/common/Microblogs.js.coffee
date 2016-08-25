@@ -6,8 +6,6 @@ MehnazApp.Common.DropdownSelection = do ->
   __microblog_stat_community = null
 
   _updateNewDropdownlist = ->
-    alert("yesss")
-    console.log($(this))
     if $(this).val().length isnt 0
       $('.microblog_type').show()
     else
@@ -15,8 +13,6 @@ MehnazApp.Common.DropdownSelection = do ->
       $('.microblog_status').hide()
 
   _updateStatusDropdownlist = ->
-    alert("yesss")
-    console.log($(this))
     if $(this).val().length isnt 0
       $('.microblog_status').show()
     else

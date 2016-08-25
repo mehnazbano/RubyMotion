@@ -14,6 +14,13 @@ class BlogpostsController < ApplicationController
   	@blogposts = Blogpost.all
   end
 
+  def delete_content
+    p "indise"
+    respond_to do |format|               
+      format.js
+    end 
+  end
+
   def show
   	@blogpost = Blogpost.where(id: params[:id]).first
   end

@@ -1,11 +1,17 @@
 - if current_user.present?
   = link_to 'Create Feed', '#', class: 'js_create_feed'
+  #feed_error_messages1
   div.js_feed_form style="display: none;"
-    = form_for Feed.new, remote: true do |f|
+    = form_for Feed.new, :html => { :multipart => true }, remote: true , :method => 'post' do |f|
       #feed_error_messages
-      = f.label :description
-      = f.text_area :description
-      = f.submit
+      div
+        = f.label :description
+        = f.text_area :description
+        br
+        = f.label :data
+        = f.file_field :data
+        br
+        = f.submit
   br
   = 'All Feeds'
   .auto_loading_container data-href='#{my_timeline_users_path}'

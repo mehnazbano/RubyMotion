@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :expertises, :dependent => :destroy
   has_many :expertise_areas, through: :expertises
   has_many :feeds
+  # validates_email_realness_of :email
 
   #searchable do
   	#string :email

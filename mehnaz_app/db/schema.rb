@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330062444) do
+ActiveRecord::Schema.define(version: 20160815162951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,45 @@ ActiveRecord::Schema.define(version: 20160330062444) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "tags"
+    t.integer  "location"
+    t.integer  "type"
+  end
+
+  create_table "content_stats", force: :cascade do |t|
+    t.integer  "content_id"
+    t.string   "content_type"
+    t.integer  "likes_count"
+    t.string   "user_id"
+    t.string   "integer"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "expertise_areas", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "expertises", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "expertise_area_id"
+    t.integer  "subexpertise_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "feeds", force: :cascade do |t|
+    t.string   "description"
+    t.string   "user_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "data_file_name"
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.datetime "data_updated_at"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -32,6 +71,18 @@ ActiveRecord::Schema.define(version: 20160330062444) do
   end
 
   add_index "locations", ["ancestry"], name: "index_locations_on_ancestry", using: :btree
+
+  create_table "microblogs", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "user_id"
+    t.string   "tags"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "community_id"
+    t.integer  "type"
+    t.integer  "status"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,31 @@
+#errorExplanation {
+  background-color: #f2dede;
+  border-color: #c43d3d;
+  color: #c43d3d;
+
+}
+
+.flash.notice{
+   background-color: #4ea5cd;
+   border-color: #3b8eb5;
+} ;
+
+.flash.error{
+  background-color: #de4343;
+  border-color: #c43d3d;
+}
+
+.flash.warning{
+  background-color: #eaaf51;
+  border-color: #d99a36;
+}
+
+.flash.message{
+  background-color: #61b832;
+  border-color: #55a12c;
+}
+
+.alert{
+  padding: 8px 20px 8px 14px;
+  margin-bottom: 21px;
+}
