@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title MehnazApp
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.sidr/2.2.1/stylesheets/jquery.sidr.dark.min.css"
+    script src="//cdn.jsdelivr.net/jquery/2.2.0/jquery.min.js"
+    script src="//cdn.jsdelivr.net/jquery.sidr/2.2.1/jquery.sidr.min.js"
+  body
+    #user_nav
+      - if user_signed_in?
+        p 
+          = image_tag('loader-small.gif', :class => 'hidden centerAlign ajaxLoaderSingle', :id => 'loading_image')
+          = "Welcome #{current_user.email}"
+        
+          #simple-menu
+            = link_to "Toggle menu", "#sidr"
+
+        #sidr
+          ul
+            li
+              = link_to "Abouts Us", "#"
+            li
+              = link_to "Carrot", carrot_search_feeds_path
+            li 
+              = link_to "Settings", "#"
+            li
+              = link_to "Sign out", destroy_user_session_path
+
+      - else
+        = link_to "Sign up", new_user_registration_path
+        = " "
+        = "or"
+        = " "
+        = link_to "sign in", new_user_session_path
+    script src="https://d38jt33bvxoy1.cloudfront.net/static/app_ui.js?pushchamp_appid=Mehnaz_ckarg&pcbell_color=5770f7&pcbell_top=10&pcbell_text=Would%20you%20like%20to%20receive%20notifications%20from%20us%3F%20Don't%20worry%20we%20will%20only%20send%20the%20important%20stuff."
+    = yield
