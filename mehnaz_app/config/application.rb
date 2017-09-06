@@ -23,6 +23,7 @@ module MehnazApp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     Paperclip.options[:command_path] = "/Users/mehnazbano/"
     config.active_record.raise_in_transactional_callbacks = true
+    config.assets.enabled = false
     config.generators do |g|
       g.template_engine :slim
     end

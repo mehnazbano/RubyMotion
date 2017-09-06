@@ -1,20 +1,21 @@
 - if current_user.present?
-  = link_to 'Create Feed', '#', class: 'js_create_feed'
-  #feed_error_messages1
-  div.js_feed_form style="display: none;"
-    = form_for Feed.new, :html => { :multipart => true }, remote: true , :method => 'post' do |f|
-      #feed_error_messages
-      div
-        = f.label :description
-        = f.text_area :description
-        br
-        = f.label :data
-        = f.file_field :data
-        br
-        = f.submit
-  br
-  = 'All Feeds'
-  .auto_loading_container data-href='#{my_timeline_users_path}' auto-load="true"
+  .light_container
+    = link_to 'Create Feed', '#', class: 'js_create_feed'
+    #feed_error_messages1
+    div.js_feed_form style="display: none;"
+      = form_for Feed.new, :html => { :multipart => true }, remote: true , :method => 'post' do |f|
+        #feed_error_messages
+        div
+          = f.label :description
+          = f.text_area :description
+          br
+          = f.label :data
+          = f.file_field :data
+          br
+          = f.submit
+    br
+    = 'All Feeds'
+    ul.unstyled.vList.timeline-vList.interactive_container data-href='#{my_timeline_users_path}' auto-load="true"
 
 
 
@@ -39,5 +40,4 @@
   /  = link_to "Edit Microblog", 'javascript:void(0);', class: 'editMicroblogForm'
   /  br
   /  = link_to "Show all Blogpost", microblogs_path
-
   /  div#panelArea

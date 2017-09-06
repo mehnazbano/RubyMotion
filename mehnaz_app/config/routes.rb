@@ -53,6 +53,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#landing_screen'
+  get 'home/about_us'
+  # get 'home/about_us'
   resources :blogposts do
     delete :delete_content
     collection do

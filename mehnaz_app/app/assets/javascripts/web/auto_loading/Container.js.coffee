@@ -48,6 +48,7 @@ MehnazApp.AutoLoading.Container = (container) ->
   * **afterContentLoadCallBackFunction** Callback to be executed after the content loads
   ###
   @refresh = (afterContentLoadCallBackFunction = null) ->
+    console.log('*****@@@@kkkk')
     _afterContentLoadCallBackFunction = afterContentLoadCallBackFunction
     _loadContainer()
 

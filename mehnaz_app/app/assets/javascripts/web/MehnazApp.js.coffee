@@ -9,7 +9,9 @@ window.MehnazApp = do ->
 		MehnazApp.Form.Common.init()
 		MehnazApp.Form.Feed.init()
 		MehnazApp.AutoLoading.Containers.init()
-		
+		MehnazApp.AutoLoading.LoadMore.init()
+		MehnazApp.AutoLoading.AjaxContainer.init()
+		MehnazApp.InteractiveContainer.init()
 		
 		return true
 	# ###MehnazApp._config
